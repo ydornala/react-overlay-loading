@@ -1,13 +1,13 @@
 var webpack = require('webpack');
 var path = require('path');
-var UglifyJsPlugin = webpack.optimise.UglifyJsPlugin;
+var UglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
 var env = process.env.WEBPACK_ENV;
 
 var libraryName = 'OverlayLoader';
 var plugins = [], outputFile;
 
 if(env == 'build'){
-  plugins.push(new UglifyJsPlugin( minimize: true ));
+  plugins.push(new UglifyJsPlugin({ minimize: true }));
   outputFile = libraryName + '.min.js';
 }else{
   outputFile = libraryName + '.js';
@@ -15,9 +15,10 @@ if(env == 'build'){
 
 var config = {
   entry: __dirname + '/src/index.js',
+  devtool: 'source-map',
   output: {
-    path: path + '/lib',
-    fileName: outputFile,
+    path: __dirname + '/lib',
+    filename: outputFile,
     library: libraryName,
     libraryTarget: 'umd',
     umdNamedDefine: true
@@ -26,16 +27,16 @@ var config = {
     loaders: [
       {
         test: /\.js$/,
-        loader: 'babel',
+        loader: 'babel-loader',
         exclude: /(node_modules)/
       }
     ]
   },
-  resolve: {
-    root: path.resolve('./src'),
-    extensions: ['', '.js']
-  },
+  // resolve: {
+  //   moduleDirectories: path.resolve('./src'),
+  //   extensions: ['', '.js']
+  // },
   plugins: plugins
 }
 
-module.export = config
+module.exports = config
