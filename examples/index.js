@@ -6,7 +6,7 @@ class App extends React.Component {
    render() {
       return (
          <div>
-            <OverlayLoader loader="ScaleLoader" text="M it's loading..." active={true}>
+            <OverlayLoader color={'red'} loader="ScaleLoader" text="Loading... Please wait!" active={true}>
               <table>
                 <tbody>
                   <tr>
