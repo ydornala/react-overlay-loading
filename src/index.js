@@ -13,7 +13,7 @@ export default class WrapperComponent extends React.Component {
     if (this.props.color) {
       color = this.props.color
     }else {
-      color = 'white'; 
+      color = 'white';
     };
 
     const Hloader = Halogen[this.props.loader];
@@ -22,18 +22,19 @@ export default class WrapperComponent extends React.Component {
       position: relative;
     `;
 
+    console.log('this props', this.props);
     const LoaderWrapper = styled.div`
       &:before {
         content: '';
-        background-color: black;
+        background-color: ${ this.props.backgroundColor || 'black' };
         width: 100%;
         height: 100%;
-        opacity: .7;
+        opacity: ${ this.props.opacity || .9};
         position: absolute;
       }
 
       display: ${ isActive }
-    `;    
+    `;
 
     const Loader = styled.div`
       position: absolute;
@@ -48,7 +49,7 @@ export default class WrapperComponent extends React.Component {
     if (this.props.text) textElement = <div>{this.props.text}</div>
 
     return (
-      <Wrapper> 
+      <Wrapper>
         <LoaderWrapper>
           <Loader>
             <Hloader color={this.props.color} />

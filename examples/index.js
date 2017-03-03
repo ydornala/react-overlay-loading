@@ -1,12 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import OverlayLoader from '../lib/OverlayLoader';
-
+// import OverlayLoader from 'react-overlay-loading/lib/OverlayLoader';
 class App extends React.Component {
    render() {
       return (
          <div>
-            <OverlayLoader color={'red'} loader="ScaleLoader" text="Loading... Please wait!" active={true}>
+            <OverlayLoader 
+              color={'red'} 
+              loader="ScaleLoader" 
+              text="Loading... Please wait!" 
+              active={true} 
+              backgroundColor={'black'}
+              >
+
               <table>
                 <tbody>
                   <tr>
