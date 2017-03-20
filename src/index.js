@@ -22,7 +22,6 @@ export default class WrapperComponent extends React.Component {
       position: relative;
     `;
 
-    console.log('this props', this.props);
     const LoaderWrapper = styled.div`
       &:before {
         content: '';
