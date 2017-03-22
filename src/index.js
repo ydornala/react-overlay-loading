@@ -30,6 +30,7 @@ export default class WrapperComponent extends React.Component {
         height: 100%;
         opacity: ${ this.props.opacity || .9};
         position: absolute;
+        z-index: 99;
       }
 
       display: ${ isActive }
@@ -42,6 +43,7 @@ export default class WrapperComponent extends React.Component {
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+      z-index: 99;
     `;
 
     let textElement = null
